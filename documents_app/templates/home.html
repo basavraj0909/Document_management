@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+<h1>Welcome, {{ user.username }}!</h1>
+<nav>
+    <ul>
+        <li><a href="{% url 'upload_document' %}">Upload Document</a></li>
+        <li><a href="{% url 'list_documents' %}">List Documents</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+    </ul>
+</nav>
+{% else %}
+<h1>Welcome to the Document Management System!</h1>
+<nav>
+    <ul>
+        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+    </ul>
+</nav>
+{% endif %}
+</body>
+</html>
